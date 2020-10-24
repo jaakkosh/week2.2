@@ -6,19 +6,15 @@ const catRoute = require('./routes/catRoute.js')
 const bodyParser = require('body-parser');
 const rootRoute = require('./routes/rootRoute.js')
 
-
-
-
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/', rootRoute);
 app.use('/cat', catRoute);
 
-// app.get('/cat', (req, res) => {
-//     res.send('From this endpoint you can get all cats.');
-//   });
-//   app.get('/cat/:id', (req, res) => {
-//     console.log('http get cat with path params', req.params);
-//     res.send(`From this endpoint you can get cat with id ?. ${req.params.id}`);
-//   });
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+// const myArr = [ 3, 3, 37,42,73 ,11,2,7]
+// const mapArr =myArr.map(i => i * 3);
+// const filter = myArr.filter(i => i > 10)
+// const reduce =myArr.reduce((acc, i)=> acc +=i);
+// console.log('original', myArr, 'map', mapArr , 'filter', filter, 'reduce', reduce);
