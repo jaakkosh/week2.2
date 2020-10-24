@@ -1,26 +1,24 @@
 'use strict';
-const express = require('express');
-const app = express();
+const express = require('express'); //importataan express
+const app = express(); 
 const port = 3000;
+const catRoute = require('./routes/catRoute.js')
 const bodyParser = require('body-parser');
+const rootRoute = require('./routes/rootRoute.js')
+
+
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/cat', (req, res) => {
-  res.send('From this endpoint you can get cats.')
-});
-app.get('/', (req, res) => {
-  console.log('root toute with req', req.query);
-  res.send(`hello world <a href="cat">click</a> <br> with
-   ${req.query.test} and fun is ${req.query.more}`);
-});
+app.use('/', rootRoute);
+app.use('/cat', catRoute);
 
-app.post('/',(req, res) => {
-  console.log('/ route with post', req.body);
-  res.send('hello root route with http post');
-});
-app.put('/',(req, res) => {
-  console.log('http put')
-  res.send('http put on root route');
-});
+// app.get('/cat', (req, res) => {
+//     res.send('From this endpoint you can get all cats.');
+//   });
+//   app.get('/cat/:id', (req, res) => {
+//     console.log('http get cat with path params', req.params);
+//     res.send(`From this endpoint you can get cat with id ?. ${req.params.id}`);
+//   });
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
