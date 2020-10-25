@@ -1,7 +1,7 @@
 'use strict';
 // catController
 
-const catModel = require('../models/catModel');
+const catModel = require('../models/catModel'); //sama kuin import
 
 const cats = catModel.cats;
 
@@ -10,12 +10,12 @@ const cat_list_get = async (req, res) => {
     res.json(cats);
 };
 
-const cat_get_by_id = (req, res) =>{
+const cat_get_by_id = async (req, res) =>{
   console.log('http get cat with path params', req.params);
  // res.send(`From this endpoint you can get cat with id ?. ${req.params.id}`);
-    res.json(cats.filter(cat => cat.id === req.params.id).reduce(cat => cat));
-    // const cat = await catModel.getCat(req.params.id);
-    // res.json(cat);
+    // res.json(cats.filter(cat => cat.id === req.params.id).reduce(cat => cat));
+      const cat = await catModel.getCat(req.params.id);
+      res.json(cat);
 }
 
 const cat_create = (req, res) => {
