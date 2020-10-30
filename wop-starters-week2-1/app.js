@@ -8,15 +8,15 @@ const rootRoute = require('./routes/rootRoute.js')
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.post('/cat', function (req, res) {
-    res.send('with this endpoint you can add cats')
-  })
-  app.put('/cat', function (req, res) {
-    res.send('with this endpoint you can edit cats')
-  })
-  app.delete('/cat', function (req, res) {
-    res.send('with this endpoint you can delete cats')
-  })
+// app.post('/cat', function (req, res) {
+//     res.send('with this endpoint you can add cats')
+//   })
+//   app.put('/cat', function (req, res) {
+//     res.send('with this endpoint you can edit cats')
+//   })
+//   app.delete('/cat', function (req, res) {
+//     res.send('with this endpoint you can delete cats')
+//   })
 
 
 
